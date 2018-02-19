@@ -126,9 +126,69 @@
                     <div class="col-lg-12 text-center">
                         <span id="splusheader" style="color: #BFBFBF;">S</span><span id="splusheader" style="color: #F46100"><sup>+</sup></span>
                         <span style="color: #BFBFBF; font-size: 25px">....................</span>
-                        <h1 style="color: #606060">TheBigCollegePlan</h1>
+                        <h1 style="color: #606060">Probability for College Acceptance</h1>
                     </div>
                     <div class="row">
+                        <div class="form-inline row col-lg-12">
+                            <div class="form-group col-lg-3 text-center">
+                            <label for="college1" class="col-2 col-form-label">College 1</label>
+                            <div class="col-2">
+                                <input class="form-control" type="number" value="0.1" id="college1">
+                            </div>
+                            </div>
+<!--                        </div>-->
+<!--                        <div class="form-group row">-->
+                            <div class="form-group col-lg-3 text-center">
+                            <label for="college2" class="col-2 col-form-label">College 2</label>
+                            <div class="col-2">
+                                <input class="form-control" type="number" value="0.1" id="college2">
+                            </div>
+                            </div>
+
+<!--                        </div>-->
+<!--                        <div class="form-group row">-->
+                            <div class="form-group col-lg-3 text-center">
+                            <label for="college3" class="col-2 col-form-label">College 3</label>
+                            
+                            <div class="col-2">
+                                <input class="form-control" type="number" value="0.1" id="college3">
+                            </div>
+                            </div>
+<!--                        </div>-->
+<!--                        <div class="form-group row">-->
+                            <div class="form-group col-lg-3 text-center">
+                            <label for="college4" class="col-2 col-form-label">College 4</label>
+                            <div class="col-2">
+                                <input class="form-control" type="number" value="0.1" id="college4">
+                            </div>
+                            </div>
+<!--                        <div class="col-lg-5"></div>-->
+
+                            <div class="col-lg-12 text-center">
+                                <br />
+                        <button href="#" id="calculate" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+<!--                            <div class="col-lg-5"></div>-->
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="col-lg-4 text-center">
+                                <h2 id="probOfAll">
+                                    <b>Probability of all occurring:</b><br />
+                                </h2>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <h2 id="probOfNone">
+                                <b>Probability of none occurring:</b><br />
+                                </h2>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <h2 id="probOfAtLeastOne">
+                                <b>Probability of at least one occurring:</b><br />
+                                </h2>
+                            </div>
+                        </div>
+<!--
                         <div class="col-sm-1"></div>
                         <div class="col-lg-6">
                             <span style="color: #A6A6A6">
@@ -144,6 +204,7 @@
                             <img src="CollegeFormGraphic.png"/>
                         </div>
                         <div class="col-sm-1"></div>
+-->
                         <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -199,6 +260,31 @@
   ga('send', 'pageview');
 
 </script>
+    <script>
+        $("#calculate").click(function(){
+                var c1 = $("#college1").val();
+                var c2 = $("#college2").val();
+                var c3 = $("#college3").val();
+                var c4 = $("#college4").val();
+                var probOfAll = parseFloat(c1) * parseFloat(c2) * parseFloat(c3) * parseFloat(c4)
+                $("#probOfAll").html("<b>Probability of all occurring:</b><br />" + "≈" + Math.round(probOfAll * 100) + "%")
+                var probOfNone = parseFloat(1 - c1) * parseFloat(1 - c2) * parseFloat(1 - c3) * parseFloat(1 - c4)
+                $("#probOfNone").html("<b>Probability of none occurring:</b><br />" + "≈" + Math.round(probOfNone * 100) + "%")
+                $("#probOfAtLeastOne").html("<b>Probability of at least one occurring:</b><br />" + "≈" + Math.round((1-probOfNone) * 100) + "%")
+        })
+//        $(document).ready(function() {
+////            $("calculate").click(function(){
+////                var value = $( this ).val();
+////                $("#probOfAll").text($("#college1").text(value));
+//                
+////                var c1 = $("#college1").val();
+////                var c2 = $("#college2").val();
+////                var c3 = $("#college3").val();
+////                var c4 = $("#college4").val();
+////                $("#probOfAll").text(c1)
+//            })
+//        })
+    </script>
 
 </body></html>
 
